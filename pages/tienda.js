@@ -1,12 +1,15 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import React from 'react'
 import Layout from '../components/Layout'
 
-export default function Home() {
+const Tienda = () => {
   return (
     <Layout
-    pagina='Inicio'>
-      <h1>Inicio</h1>
+    pagina='Tienda'>
+      <h1>Tienda</h1>
     </Layout>
   )
 }
+
+export default Tienda
