@@ -4,7 +4,9 @@ import styles from '../styles/Blog.module.css'
 
 const Blog = ({entradas}) => {
 
-  const nuevasEntradas = entradas.data;
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/api/blogs`
+
+  console.log(url)
 
   return (
     <Layout
@@ -13,7 +15,7 @@ const Blog = ({entradas}) => {
       <main className='contenedor'>
         <h2 className='heading'>Blog</h2>
          <div className={styles.blog}>
-            {nuevasEntradas.map( entrada => (
+            {entradas.data.map( entrada => (
               <Entrada
                 key={entrada.id}
                 entradas={entrada}
@@ -25,8 +27,9 @@ const Blog = ({entradas}) => {
   )
 }
 
-export async function getServerSideProps() {
-    const url = 'http://localhost:1337/api/blogs?populate=*'
+export async function getStaticProps() {
+    const url = `${process.env.API_URL}/api/blogs?populate=*`
+    // const url = 'http://localhost:1337/api/blogs?populate=*'
     const respuesta = await fetch(url)
     const entradas = await respuesta.json()
   return {

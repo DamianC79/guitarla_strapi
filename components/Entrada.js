@@ -8,10 +8,9 @@ const Entrada = ({entradas}) => {
   const {titulo, resumen, publishedAt, imagen} = entradas.attributes;
   const urlImagen = imagen.data.attributes.formats.medium.url
 
-  console.log(id)
   return (
     <article>
-      <Image layout='responsive' width={800} height={600} src={urlImagen} alt={`imagen blog ${titulo}`}/>
+      <Image priority layout='responsive' width={800} height={600} src={urlImagen} alt={`imagen blog ${titulo}`}/>
       <div className={styles.contenido}>
         <h3>{titulo}</h3>
         <p className={styles.fecha}>{formatearFecha(publishedAt)}</p>

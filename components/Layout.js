@@ -10,7 +10,7 @@ const Layout = ({children, pagina}) => {
             <meta name="description" content="Sitio Web de venta de guitarras" />
         </Head>
         <Header/>
-        {children}
+          {children}
         <Footer/>
     </div>
   )
